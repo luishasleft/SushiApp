@@ -1,7 +1,7 @@
+using SushiApp;
+using SushiApp.Components;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using SushiApp.Components;
-using SushiApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

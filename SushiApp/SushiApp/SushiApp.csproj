@@ -16,4 +16,23 @@
       <PackageReference Include="MudBlazor" Version="8.6.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Components\App.razor" />
+      <_ContentIncludedByDefault Remove="Components\Layout\MainLayout.razor" />
+      <_ContentIncludedByDefault Remove="Components\Layout\NavMenu.razor" />
+      <_ContentIncludedByDefault Remove="Components\Pages\Account\AccessDenied.razor" />
+      <_ContentIncludedByDefault Remove="Components\Pages\Account\Login.razor" />
+      <_ContentIncludedByDefault Remove="Components\Pages\Account\Logout.razor" />
+      <_ContentIncludedByDefault Remove="Components\Pages\Counter.razor" />
+      <_ContentIncludedByDefault Remove="Components\Pages\Error.razor" />
+      <_ContentIncludedByDefault Remove="Components\Pages\Home.razor" />
+      <_ContentIncludedByDefault Remove="Components\Pages\Weather.razor" />
+      <_ContentIncludedByDefault Remove="Components\Routes.razor" />
+      <_ContentIncludedByDefault Remove="Components\_Imports.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Components\.DS_Store" />
+    </ItemGroup>
+
 </Project>

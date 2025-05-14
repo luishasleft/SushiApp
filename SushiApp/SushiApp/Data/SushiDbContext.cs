@@ -1,12 +1,18 @@
+
+using CinemaManager.Models.Entities;
+
+namespace SushiApp;
+
 using Microsoft.EntityFrameworkCore;
-using SushiApp.Models.Entities;
 
-namespace SushiApp.Data;
-
-public class SushiDbContext: DbContext
+public class SushiDbContext : DbContext
 {
     public SushiDbContext(DbContextOptions<SushiDbContext> options) : base(options) { }
     
     public DbSet<UserAccount> UserAccounts { get; set; }
     
+    // protected override void OnModelCreating(ModelBuilder modelBuilder)
+    // {
+    //     base.OnModelCreating(modelBuilder);
+    // }
 }
