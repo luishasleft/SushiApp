@@ -1,5 +1,6 @@
 
 using CinemaManager.Models.Entities;
+using SushiApp.Models.Entities;
 
 namespace SushiApp;
 
@@ -10,9 +11,6 @@ public class SushiDbContext : DbContext
     public SushiDbContext(DbContextOptions<SushiDbContext> options) : base(options) { }
     
     public DbSet<UserAccount> UserAccounts { get; set; }
-    
-    // protected override void OnModelCreating(ModelBuilder modelBuilder)
-    // {
-    //     base.OnModelCreating(modelBuilder);
-    // }
+    public DbSet<Piatto> Piatti { get; set; }
+ 
 }

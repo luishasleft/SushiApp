@@ -1,0 +1,86 @@
+﻿@page "/insert"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using SushiApp.Models.Entities
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = "Cucina")]
+<MudGrid>
+    <MudItem xs="12">
+        <MudText Typo="Typo.h4" Class="mt-4 mb-4">Inserisci un nuovo Sushi 🍣</MudText>
+    </MudItem>
+
+    @if (!string.IsNullOrEmpty(successMessage))
+    {
+        <MudItem xs="12">
+            <MudAlert Severity="Severity.Success" Elevation="4" Dense="true" Class="mb-4">
+                @successMessage
+            </MudAlert>
+        </MudItem>
+    }
+
+    <MudItem xs="12">
+        <EditForm Model="@sushi" OnValidSubmit="OnValidSubmit">
+            <MudGrid>
+                <MudItem xs="12" md="6">
+                    <MudTextField Label="Nome" @bind-Value="@sushi.Name" Required="true" />
+                </MudItem>
+
+                <MudItem xs="12" md="6">
+                    <MudNumericField T="double" Label="Prezzo" @bind-Value="@sushi.Price" Required="true" />
+                </MudItem>
+
+                <MudItem xs="12">
+                    <MudTextField Label="Descrizione" @bind-Value="@sushi.Description" Required="true" />
+                </MudItem>
+
+                <MudItem xs="12">
+                    <MudTextField Label="Tipo" @bind-Value="@sushi.Type" Required="true" />
+                </MudItem>
+
+                <MudItem xs="12">
+                    <InputFile OnChange="OnInputFileChange" />
+                </MudItem>
+
+                <MudItem xs="12">
+                    <MudButton ButtonType="ButtonType.Submit" Color="Color.Primary" Variant="Variant.Filled">Inserisci</MudButton>
+                </MudItem>
+            </MudGrid>
+        </EditForm>
+    </MudItem>
+</MudGrid>
+
+@inject SushiDbContext dbContext;
+
+@code {
+    Piatto sushi = new Piatto();
+    private IBrowserFile selectedImage;
+    private string successMessage;
+
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        selectedImage = e.File;
+
+        if (selectedImage != null)
+        {
+            using var stream = selectedImage.OpenReadStream(maxAllowedSize: 1024 * 1024); // ad esempio 1MB
+            using var memoryStream = new MemoryStream();
+            await stream.CopyToAsync(memoryStream);
+            sushi.Image = memoryStream.ToArray();
+        }
+    }
+
+    private async Task OnValidSubmit()
+    {
+        dbContext.Piatti.Add(sushi);
+        await dbContext.SaveChangesAsync();
+
+        // Mostra il messaggio di successo
+        successMessage = $"Sushi '{sushi.Name}' inserito correttamente! 🎉";
+
+        // Resetta il modello dopo l'inserimento
+        sushi = new Piatto();
+        selectedImage = null;
+        StateHasChanged();
+    }
+
+}

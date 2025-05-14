@@ -11,10 +11,6 @@
     <div class="col-lg-4 offset-lg-4 pt-4 pb-4 border">
         <EditForm Model="@Model" OnValidSubmit="Authenticate" FormName="LoginForm">
             <DataAnnotationsValidator />
-            <div class="mb-3text-center flex-column">
-                <img src="/images/avatar" class="img-fluid" />
-                <h3>Login</h3>
-            </div>
             <div class="mb-3">
                 <label>UserName</label>
                 <InputText @bind-Value="Model.UserName" class="form-control" placeholder="Username" />

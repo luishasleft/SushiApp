@@ -2,10 +2,14 @@ using SushiApp;
 using SushiApp.Components;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddMudServices();
+builder.Services.AddLocalization();
 
 
 // Add services to the container.

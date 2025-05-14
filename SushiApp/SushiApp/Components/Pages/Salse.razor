@@ -1,0 +1,55 @@
+@page "/salse"
+@using Microsoft.EntityFrameworkCore
+@using SushiApp.Models.Entities
+@inject SushiDbContext DbContext
+
+<h3>Salse</h3>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+    <MudGrid GutterSize="3">
+        @if (sushi == null)
+        {
+            <MudItem xs="12">
+                <MudText>Caricamento...</MudText>
+            </MudItem>
+        }
+        else if (sushi.Count == 0)
+        {
+            <MudItem xs="12">
+                <MudText>Nessun piatto è stato trovato</MudText>
+            </MudItem>
+        }
+        else
+        {
+            @foreach (var s in sushi)
+            {
+                <MudItem xs="12" sm="6" md="4" lg="3">
+                    <MudGrid>
+                        @if (s.Image != null)
+                        {
+                            <MudCardMedia Image="@($"data:image/png;base64,{Convert.ToBase64String(s.Image)}")" alt="Immagine" style="width: 80%; height: 200px;" />
+                        }
+                        <MudCardContent>
+                            <MudText Typo="Typo.h6">@s.Name</MudText>
+                            <MudText Typo="Typo.body2">@s.Description</MudText>
+                            <MudText Typo="Typo.subtitle1">@s.Price €</MudText>
+                        </MudCardContent>
+                        <MudCardActions>
+                            <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" Size="Size.Small"/>
+                        </MudCardActions>
+                    </MudGrid>
+                </MudItem>
+            }
+        }
+    </MudGrid>
+</MudContainer>
+
+@code {
+    private List<Piatto> sushi;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        sushi = await DbContext.Piatti.Where(p => p.Type == "Salse").ToListAsync();
+    }
+
+}
