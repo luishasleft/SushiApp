@@ -1,0 +1,79 @@
+@page "/register"
+@using SushiApp.Models.Entities
+@rendermode InteractiveServer
+
+<MudContainer MaxWidth="MaxWidth.False" Class="d-flex justify-center">
+    <MudPaper Elevation="3" Class="p-6 mt-5" Style="max-width: 550px; width: 100%;">
+        <MudText Typo="Typo.h5" Align="Align.Center" Class="mb-4">Registrazione</MudText>
+
+        @if (!string.IsNullOrEmpty(successMessage))
+        {
+            <MudAlert Severity="Severity.Success" Elevation="4" Dense="true" Class="mb-4">
+                @successMessage
+            </MudAlert>
+        }
+
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <MudAlert Severity="Severity.Error" Elevation="4" Dense="true" Class="mb-4">
+                @errorMessage
+            </MudAlert>
+        }
+
+        <EditForm Model="@Account" OnValidSubmit="OnValidSubmit">
+            <MudGrid>
+                <MudItem xs="12" class="mb-2" >
+                    <MudTextField Label="Username" @bind-Value="@Account.UserName" Required="true" Variant="Variant.Outlined"  />
+                </MudItem>
+
+                <MudItem xs="12" class="mb-2">
+                    <MudTextField Label="Password" @bind-Value="@Account.Password" Required="true" InputType="InputType.Password" Variant="Variant.Outlined"  />
+                </MudItem>
+
+                <MudItem xs="12" class="d-flex justify-center">
+                    <MudButton ButtonType="ButtonType.Submit" Color="Color.Primary" Variant="Variant.Filled" Style="width: 100%; max-width: 400px;">
+                        Registrati
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </EditForm>
+
+        <MudText Align="Align.Center" Class="mt-2">
+            <span>Hai giá un account? <a href="/login">Login</a></span>
+        </MudText>
+    </MudPaper>
+</MudContainer>
+
+@inject SushiDbContext dbContext;
+
+@code {
+    private UserAccount Account = new UserAccount();
+    private string? successMessage;
+    private string? errorMessage;
+
+    private async Task OnValidSubmit()
+    {
+        // Controllo username già esistente
+        var exists = dbContext.UserAccounts.Any(x => x.UserName == Account.UserName);
+
+        if (exists)
+        {
+            errorMessage = "Username già esistente.";
+            successMessage = null;
+            return;
+        }
+
+        // Imposto il ruolo di default
+        Account.Role = "User";
+
+        dbContext.UserAccounts.Add(Account);
+        await dbContext.SaveChangesAsync();
+
+        successMessage = $"Utente '{Account.UserName}' registrato con successo! 🎉";
+        errorMessage = null;
+
+        // Reset modello per pulire il form
+        Account = new UserAccount();
+        StateHasChanged();
+    }
+}

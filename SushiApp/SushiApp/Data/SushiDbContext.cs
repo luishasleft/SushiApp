@@ -1,5 +1,5 @@
 
-using CinemaManager.Models.Entities;
+using SushiApp.Models.Entities;
 using SushiApp.Models.Entities;
 
 namespace SushiApp;

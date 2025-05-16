@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CinemaManager.Models.Entities;
+namespace SushiApp.Models.Entities;
 
 [Table("users_accounts")]
 

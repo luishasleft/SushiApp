@@ -8,9 +8,12 @@
 @inject NavigationManager NavigationManager
 
 <div class="row">
-    <div class="col-lg-4 offset-lg-4 pt-4 pb-4 border">
+    <div class="col-lg-4 offset-lg-4 pt-4 pb-4 border border-5">
         <EditForm Model="@Model" OnValidSubmit="Authenticate" FormName="LoginForm">
             <DataAnnotationsValidator />
+            <div class="mb-3 text-center">
+                <h3>Login</h3>
+            </div>
             <div class="mb-3">
                 <label>UserName</label>
                 <InputText @bind-Value="Model.UserName" class="form-control" placeholder="Username" />
@@ -27,13 +30,12 @@
             <div class="mb-3 d-grid gap-2">
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
+            <div class="text-center">
+                <span>Non sei registrato? <a href="/register">Registrati</a></span>
+            </div>
         </EditForm>
     </div>
 </div>
-
-
-
-
 
 
 
