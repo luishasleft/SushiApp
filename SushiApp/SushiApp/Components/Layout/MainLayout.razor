@@ -1,8 +1,4 @@
 ﻿@inherits LayoutComponentBase
-<MudThemeProvider />
-<MudDialogProvider />
-<MudSnackbarProvider />
-
 <div class="page">
     <div class="sidebar">
         <NavMenu/>
@@ -10,7 +6,6 @@
 
     <main>
         <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
             <AuthorizeView>
                 <NotAuthorized>
                     <a href="/login">Login</a>
@@ -26,6 +21,14 @@
         </article>
     </main>
 </div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <span>&copy; 2025 Wasabi Garden</span>
+        <a href="/privacy">Privacy</a>
+        <a href="/contatti">Contatti</a>
+    </div>
+</footer>
 
 <div id="blazor-error-ui" data-nosnippet>
     An unhandled error has occurred.

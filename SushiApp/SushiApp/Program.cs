@@ -2,13 +2,12 @@ using SushiApp;
 using SushiApp.Components;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using MudBlazor.Services;
+using SushiApp.Models.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddMudServices();
 builder.Services.AddLocalization();
 
 
@@ -31,6 +30,7 @@ builder.Services.AddAuthorization();
 builder.Services.AddCascadingAuthenticationState();
 //fine guida autenticazione
 
+builder.Services.AddScoped<OrdineService>();
 
 
 builder.Services.AddDbContext<SushiDbContext>(options =>
@@ -54,6 +54,7 @@ app.UseAntiforgery();
 app.UseAuthentication();
 app.UseAuthorization();
 //fine guida autenticazione
+
 
 
 

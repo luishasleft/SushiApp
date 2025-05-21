@@ -8,14 +8,9 @@
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/SushiApp.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/SushiApp.pdb
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Humanizer.dll
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.AspNetCore.Authorization.dll
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.AspNetCore.Components.dll
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.AspNetCore.Components.Forms.dll
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.AspNetCore.Components.Web.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.AspNetCore.Cryptography.Internal.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.AspNetCore.Metadata.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.Build.Locator.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.dll
@@ -38,15 +33,11 @@
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.Extensions.DependencyModel.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.Extensions.Identity.Core.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.Extensions.Identity.Stores.dll
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.Extensions.Localization.dll
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.Extensions.Localization.Abstractions.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Microsoft.JSInterop.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/Mono.TextTemplating.dll
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/MudBlazor.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/SQLitePCLRaw.batteries_v2.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/SQLitePCLRaw.core.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/bin/Debug/net9.0/SQLitePCLRaw.provider.e_sqlite3.dll
@@ -154,9 +145,6 @@
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/bundle/SushiApp.styles.css
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/projectbundle/SushiApp.bundle.scp.css
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/tzxjg6is5z-qmvjbof2tn.gz
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/0wz98yz2xy-jrqzp895hu.gz
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/8x90fzaxze-w7mf952350.gz
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/bm6381g8up-bqjiyaj88i.gz
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/oa99chf848-c2jlpeoesf.gz
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/7jobny8ubu-erw9l3u2r3.gz
@@ -183,7 +171,6 @@
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/hzqecois8q-nvvlpmu67g.gz
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/qun1qym92j-s35ty4nyc5.gz
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/nfuux2q53s-pj5nd1wqec.gz
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/1wvuyrd6ff-46ein0sx1k.gz
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/66mi343f37-v0zj4ognzu.gz
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/gmvp12lqtw-37tfw0ft22.gz
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/bhdn21zbue-hrwsygsryq.gz
@@ -201,8 +188,6 @@
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/nojekrj3wj-h1s4sie4z3.gz
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/x9pmnyx7v6-63fj8s7r0e.gz
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/b70fzksjj9-0j3bgjxly4.gz
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-3gqskwqgf1.gz
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-3gqskwqgf1.gz
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/staticwebassets.build.json
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/staticwebassets.development.json
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/staticwebassets.build.endpoints.json
@@ -218,3 +203,7 @@
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/SushiApp.pdb
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/SushiApp.genruntimeconfig.cache
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/ref/SushiApp.dll
+/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/1wvuyrd6ff-c9hxrnmwlv.gz
+/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-s4yhwon66v.gz
+/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-s4yhwon66v.gz
+/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/8x90fzaxze-d2yrlcgifp.gz

@@ -15,11 +15,13 @@ public class UserAccount
     [Column("user_name")]
     [MaxLength(100)]
     
+    [Required]
     public string? UserName { get; set; }
     
     [Column("password")]
     [MaxLength(100)]
     
+    [Required]
     public string? Password { get; set; }
     
     [Column("role")]

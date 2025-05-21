@@ -3,55 +3,56 @@
 @using SushiApp.Models.Entities
 @rendermode InteractiveServer
 @attribute [Authorize(Roles = "Cucina")]
-<MudGrid>
-    <MudItem xs="12">
-        <MudText Typo="Typo.h4" Class="mt-4 mb-4">Inserisci un nuovo Sushi 🍣</MudText>
-    </MudItem>
 
-    @if (!string.IsNullOrEmpty(successMessage))
-    {
-        <MudItem xs="12">
-            <MudAlert Severity="Severity.Success" Elevation="4" Dense="true" Class="mb-4">
-                @successMessage
-            </MudAlert>
-        </MudItem>
-    }
+@inject SushiDbContext dbContext
 
-    <MudItem xs="12">
-        <EditForm Model="@sushi" OnValidSubmit="OnValidSubmit">
-            <MudGrid>
-                <MudItem xs="12" md="6">
-                    <MudTextField Label="Nome" @bind-Value="@sushi.Name" Required="true" />
-                </MudItem>
+<h3 class="mt-4 mb-4">Inserisci un nuovo Sushi 🍣</h3>
 
-                <MudItem xs="12" md="6">
-                    <MudNumericField T="double" Label="Prezzo" @bind-Value="@sushi.Price" Required="true" />
-                </MudItem>
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <div class="alert alert-success" role="alert">
+        @successMessage
+    </div>
+}
 
-                <MudItem xs="12">
-                    <MudTextField Label="Descrizione" @bind-Value="@sushi.Description" Required="true" />
-                </MudItem>
+<EditForm Model="@sushi" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
 
-                <MudItem xs="12">
-                    <MudTextField Label="Tipo" @bind-Value="@sushi.Type" Required="true" />
-                </MudItem>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label>Nome</label>
+            <InputText class="form-control" @bind-Value="@sushi.Name" />
+        </div>
 
-                <MudItem xs="12">
-                    <InputFile OnChange="OnInputFileChange" />
-                </MudItem>
+        <div class="col-md-6 mb-3">
+            <label>Prezzo</label>
+            <InputNumber class="form-control" @bind-Value="@sushi.Price" />
+        </div>
 
-                <MudItem xs="12">
-                    <MudButton ButtonType="ButtonType.Submit" Color="Color.Primary" Variant="Variant.Filled">Inserisci</MudButton>
-                </MudItem>
-            </MudGrid>
-        </EditForm>
-    </MudItem>
-</MudGrid>
+        <div class="col-12 mb-3">
+            <label>Descrizione</label>
+            <InputText class="form-control" @bind-Value="@sushi.Description" />
+        </div>
 
-@inject SushiDbContext dbContext;
+        <div class="col-12 mb-3">
+            <label>Tipo</label>
+            <InputText class="form-control" @bind-Value="@sushi.Type" />
+        </div>
+
+        <div class="col-12 mb-3">
+            <label>Immagine</label>
+            <InputFile OnChange="OnInputFileChange" />
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Inserisci</button>
+        </div>
+    </div>
+</EditForm>
 
 @code {
-    Piatto sushi = new Piatto();
+    private Piatto sushi = new();
     private IBrowserFile selectedImage;
     private string successMessage;
 
@@ -61,7 +62,7 @@
 
         if (selectedImage != null)
         {
-            using var stream = selectedImage.OpenReadStream(maxAllowedSize: 1024 * 1024); // ad esempio 1MB
+            using var stream = selectedImage.OpenReadStream(maxAllowedSize: 1024 * 1024); // max 1MB
             using var memoryStream = new MemoryStream();
             await stream.CopyToAsync(memoryStream);
             sushi.Image = memoryStream.ToArray();
@@ -73,13 +74,10 @@
         dbContext.Piatti.Add(sushi);
         await dbContext.SaveChangesAsync();
 
-        // Mostra il messaggio di successo
         successMessage = $"Sushi '{sushi.Name}' inserito correttamente! 🎉";
 
-        // Resetta il modello dopo l'inserimento
+        // Reset
         sushi = new Piatto();
         selectedImage = null;
-        StateHasChanged();
     }
-
 }

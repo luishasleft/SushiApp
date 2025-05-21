@@ -5,52 +5,52 @@
 
 <h3>Dolci</h3>
 
-<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
-    <MudGrid GutterSize="3">
+<div class="container mt-4">
+    <div class="row">
         @if (sushi == null)
         {
-            <MudItem xs="12">
-                <MudText>Caricamento...</MudText>
-            </MudItem>
+            <div class="col-12">
+                <p>Caricamento...</p>
+            </div>
         }
         else if (sushi.Count == 0)
         {
-            <MudItem xs="12">
-                <MudText>Nessun piatto è stato trovato</MudText>
-            </MudItem>
+            <div class="col-12">
+                <p>Nessun piatto è stato trovato</p>
+            </div>
         }
         else
         {
             @foreach (var s in sushi)
             {
-                <MudItem xs="12" sm="6" md="4" lg="3">
-                    <MudGrid>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100">
                         @if (s.Image != null)
                         {
-                            <MudCardMedia Image="@($"data:image/png;base64,{Convert.ToBase64String(s.Image)}")" alt="Immagine" style="width: 80%; height: 220px;" />
-
+                            <img class="card-img-top" src="@($"data:image/png;base64,{Convert.ToBase64String(s.Image)}")" alt="Immagine" style="height: 220px; object-fit: cover;" />
                         }
-                        <MudCardContent>
-                            <MudText Typo="Typo.h6">@s.Name</MudText>
-                            <MudText Typo="Typo.body2">@s.Description</MudText>
-                            <MudText Typo="Typo.subtitle1">@s.Price €</MudText>
-                            <div style="text-align: right;">
-                                <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" Size="Size.Small" />
-                            </div>
-                        </MudCardContent>
-                    </MudGrid>
-                </MudItem>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">@s.Name</h5>
+                            <p class="card-text">@s.Description</p>
+                            <p class="card-text fw-bold">@s.Price €</p>
+                        </div>
+                        <div class="card-footer text-end">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-plus"></i> Aggiungi
+                            </button>
+                        </div>
+                    </div>
+                </div>
             }
         }
-    </MudGrid>
-</MudContainer>
+    </div>
+</div>
 
 @code {
     private List<Piatto> sushi;
-    
+
     protected override async Task OnInitializedAsync()
     {
         sushi = await DbContext.Piatti.Where(p => p.Type == "Dolci").ToListAsync();
     }
-
 }

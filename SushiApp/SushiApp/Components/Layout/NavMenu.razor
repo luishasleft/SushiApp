@@ -1,10 +1,11 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿<div class="top-row ps-3 navbar  navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">SushiApp</a>
+        <a class="navbar-brand" href="">Wasabi Garden</a>
     </div>
 </div>
 
 <input type="checkbox" title="Navigation menu" class="navbar-toggler"/>
+
 
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="nav flex-column">
@@ -21,17 +22,16 @@
                         <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Inserisci
                     </NavLink>
                 </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="ordini">
+                        <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Ordini
+                    </NavLink>
+                </div>
             </Authorized>
         </AuthorizeView>
         
         <AuthorizeView Roles="Client, Cucina">
             <Authorized>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="">
-                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-                    </NavLink>
-                </div>
-
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="nigiri">
                         <span class="bi bi-dot"></span> Nigiri
