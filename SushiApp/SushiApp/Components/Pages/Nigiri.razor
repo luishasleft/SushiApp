@@ -1,17 +1,114 @@
 @page "/nigiri"
+@using Microsoft.EntityFrameworkCore
+@using SushiApp.Models.Entities
+@using SushiApp.Models.Services
+@inject SushiDbContext DbContext
+@inject OrdineService OrdineService
+@inject AuthenticationStateProvider AuthenticationStateProvider
 @rendermode InteractiveServer
+<h3>Nigiri</h3>
 
-<h3>Test bottone</h3>
+@if (!string.IsNullOrEmpty(messaggio))
+{
+    <div class="alert alert-info">@messaggio</div>
+}
 
-<button @onclick="OnClick">Cliccami</button>
-
-<p>@message</p>
+<div class="container mt-4">
+    <div class="row">
+        @if (sushi == null)
+        {
+            <div class="col-12">
+                <p>Caricamento...</p>
+            </div>
+        }
+        else if (sushi.Count == 0)
+        {
+            <div class="col-12">
+                <p>Nessun piatto è stato trovato</p>
+            </div>
+        }
+        else
+        {
+            @foreach (var s in sushi)
+            {
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100">
+                        @if (s.Image != null)
+                        {
+                            <img class="card-img-top" src="@($"data:image/png;base64,{Convert.ToBase64String(s.Image)}")" alt="Immagine" style="height: 220px; object-fit: cover;" />
+                        }
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">@s.Name</h5>
+                            <p class="card-text">@s.Description</p>
+                            <p class="card-text fw-bold">@s.Price €</p>
+                        </div>
+                        <div class="card-footer text-end d-flex align-items-center justify-content-end gap-2">
+                            <button class="btn btn-primary btn-sm" @onclick="() => AggiungiAlCarrello(s.Id)">
+                                <i class="bi bi-plus"></i> Aggiungi
+                            </button>
+                            <span>@(contatori.ContainsKey(s.Id) ? contatori[s.Id] : 0)</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
 
 @code {
-    private string message = "";
+    private List<Piatto> sushi;
+    private string messaggio = "";
 
-    private void OnClick()
+    // dizionario per tenere traccia del numero di aggiunte per piatto
+    private Dictionary<int, int> contatori = new();
+
+    protected override async Task OnInitializedAsync()
     {
-        message = "Bottone cliccato!";
+        sushi = await DbContext.Piatti.Where(p => p.Type == "Nigiri").ToListAsync();
+    }
+
+    private async Task AggiungiAlCarrello(int piattoId)
+    {
+        try
+        {
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+
+            if (user.Identity?.IsAuthenticated == true)
+            {
+                var tavolo = user.Identity.Name;
+
+                if (string.IsNullOrEmpty(tavolo))
+                {
+                    messaggio = "Errore: nome utente/tavolo non valido.";
+                    StateHasChanged();
+                    return;
+                }
+
+                await OrdineService.AggiungiProdottoAsync(tavolo, piattoId);
+
+                // aggiorna contatore
+                if (contatori.ContainsKey(piattoId))
+                {
+                    contatori[piattoId]++;
+                }
+                else
+                {
+                    contatori[piattoId] = 1;
+                }
+
+                messaggio = "Piatto aggiunto all'ordine!";
+            }
+            else
+            {
+                messaggio = "Devi essere loggato per aggiungere un piatto.";
+            }
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            messaggio = $"Errore durante l'aggiunta: {ex.Message}";
+            StateHasChanged();
+        }
     }
 }

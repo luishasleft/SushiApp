@@ -80,6 +80,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9OaWdpcmkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Pages/Ordini.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9PcmRpbmkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Pages/Poke.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Qb2tlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

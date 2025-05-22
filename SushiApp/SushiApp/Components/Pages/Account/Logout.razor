@@ -1,6 +1,8 @@
 @page "/logout"
 @using Microsoft.AspNetCore.Authentication
+@using SushiApp.Models.Services
 @inject NavigationManager NavigationManager
+@inject OrdineService OrdineService
 
 
 <div class="row">
@@ -22,11 +24,20 @@
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
+
         if (HttpContext.User.Identity.IsAuthenticated)
         {
+            var tavolo = HttpContext.User.Identity?.Name;
+
+            if (!string.IsNullOrEmpty(tavolo))
+            {
+                // Chiude l'ordine attuale e ne apre uno nuovo
+                await OrdineService.ChiudiEApriNuovoOrdineAsync(tavolo);
+            }
+
+            // Logout effettivo
             await HttpContext.SignOutAsync();
             NavigationManager.NavigateTo("/logout", true);
         }
     }
-
 }

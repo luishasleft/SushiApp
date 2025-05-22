@@ -16,7 +16,9 @@ public class OrdineService
         return await _dbContext.Ordini
             .Include(o => o.Dettagli)
             .ThenInclude(d => d.Piatto)
-            .FirstOrDefaultAsync(o => o.Tavolo == tavolo);
+            .Where(o => o.Tavolo == tavolo && o.Stato != "Completato" && o.Stato != "Chiuso")
+            .OrderByDescending(o => o.DataOrdine)
+            .FirstOrDefaultAsync();
     }
 
     public async Task<Ordine> CreaOrdineAsync(string tavolo)
@@ -70,4 +72,38 @@ public class OrdineService
             .ThenInclude(d => d.Piatto)
             .ToListAsync();
     }
+    
+    public async Task AggiornaStatoOrdineAsync(Ordine ordine)
+    {
+        var ordineEsistente = await _dbContext.Ordini.FindAsync(ordine.Id);
+
+        if (ordineEsistente != null)
+        {
+            ordineEsistente.Stato = ordine.Stato;
+            _dbContext.Ordini.Update(ordineEsistente);
+            await _dbContext.SaveChangesAsync();
+        }
+    }
+    public async Task<Ordine> ChiudiEApriNuovoOrdineAsync(string tavolo)
+    {
+        // Recupera l'ordine attuale del tavolo
+        var ordineEsistente = await _dbContext.Ordini
+            .Where(o => o.Tavolo == tavolo && o.Stato != "Completato" && o.Stato != "Chiuso")
+            .OrderByDescending(o => o.DataOrdine)
+            .FirstOrDefaultAsync();
+
+        // Se c'è un ordine attivo, chiudilo
+        if (ordineEsistente != null)
+        {
+            ordineEsistente.Stato = "Completato"; // o "Chiuso"
+            _dbContext.Ordini.Update(ordineEsistente);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        // Crea un nuovo ordine vuoto per quel tavolo
+        return await CreaOrdineAsync(tavolo);
+    }
+
+
 }
+

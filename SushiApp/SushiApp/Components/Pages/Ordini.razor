@@ -1,0 +1,72 @@
+@page "/ordini"
+@using SushiApp.Models.Entities
+@using SushiApp.Models.Services
+@inject OrdineService OrdineService
+
+<h3>Lista Ordini</h3>
+
+@if (ordini == null)
+{
+    <p>Caricamento ordini...</p>
+}
+else if (ordini.Count == 0)
+{
+    <p>Nessun ordine trovato.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Tavolo</th>
+            <th>Data Ordine</th>
+            <th>Stato</th>
+            <th>Dettagli Ordine</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var ordine in ordini)
+        {
+            <tr>
+                <td>@ordine.Tavolo</td>
+                <td>@ordine.DataOrdine.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <select class="form-select" @onchange="e => CambiaStato(ordine, e.Value.ToString())">
+                        @foreach (var stato in statiPossibili)
+                        {
+                            <option value="@stato" selected="@(ordine.Stato == stato)">
+                                @stato
+                            </option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var dettaglio in ordine.Dettagli)
+                        {
+                            <li>@dettaglio.Piatto.Name x @dettaglio.Quantita</li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Ordine> ordini;
+    private List<string> statiPossibili = new() { "In preparazione", "Servito", "Completato", "Annullato" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        ordini = await OrdineService.GetTuttiGliOrdiniAsync();
+    }
+
+    private async Task CambiaStato(Ordine ordine, string nuovoStato)
+    {
+        ordine.Stato = nuovoStato;
+        await OrdineService.AggiornaStatoOrdineAsync(ordine); // Supponendo che tu abbia questo metodo nel servizio
+        StateHasChanged();
+    }
+}
