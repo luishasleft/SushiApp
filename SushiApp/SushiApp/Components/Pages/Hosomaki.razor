@@ -1,9 +1,17 @@
-@page "/Hosomaki"
+@page "/hosomaki"
 @using Microsoft.EntityFrameworkCore
 @using SushiApp.Models.Entities
+@using SushiApp.Models.Services
 @inject SushiDbContext DbContext
-
+@inject OrdineService OrdineService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@rendermode InteractiveServer
 <h3>Hosomaki</h3>
+
+@if (!string.IsNullOrEmpty(messaggio))
+{
+    <div class="alert alert-info">@messaggio</div>
+}
 
 <div class="container mt-4">
     <div class="row">
@@ -34,10 +42,27 @@
                             <p class="card-text">@s.Description</p>
                             <p class="card-text fw-bold">@s.Price €</p>
                         </div>
-                        <div class="card-footer text-end">
-                            <button class="btn btn-primary btn-sm">
-                                <i class="bi bi-plus"></i> Aggiungi
-                            </button>
+                        <div class="card-footer text-end d-flex align-items-center justify-content-end gap-2">
+                            <AuthorizeView Roles="Tavolo,Client">
+                                <Authorized>
+                                    <button class="btn btn-primary btn-sm" @onclick="async () => await AggiungiAlCarrello(s.Id)">
+                                        <i class="bi bi-plus"></i> Aggiungi
+                                    </button>
+                                    <span class="badge bg-secondary rounded-pill px-3 py-2">
+                                        @(contatori.ContainsKey(s.Id) ? contatori[s.Id] : 0)
+                                    </span>
+                                </Authorized>
+                            </AuthorizeView>
+                            <AuthorizeView Roles="Cucina">
+                                <Authorized>
+                                    <button class="btn btn-warning btn-sm" @onclick="() => ApriModaleModifica(s.Id)">
+                                        <i class="bi bi-pencil"></i> Modifica
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" @onclick="() => EliminaPiatto(s.Id)">
+                                        <i class="bi bi-trash"></i> Elimina
+                                    </button>
+                                </Authorized>
+                            </AuthorizeView>
                         </div>
                     </div>
                 </div>
@@ -46,11 +71,125 @@
     </div>
 </div>
 
+@if (mostraModaleModifica && piattoDaModificare != null)
+{
+    <div class="modal fade show d-block" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modifica Piatto</h5>
+                    <button type="button" class="btn-close" @onclick="() => mostraModaleModifica = false"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label>Nome</label>
+                        <input class="form-control" @bind="piattoDaModificare.Name" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Descrizione</label>
+                        <textarea class="form-control" @bind="piattoDaModificare.Description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label>Prezzo</label>
+                        <input type="number" class="form-control" @bind="piattoDaModificare.Price" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" @onclick="() => mostraModaleModifica = false">Annulla</button>
+                    <button class="btn btn-primary" @onclick="SalvaModifiche">Salva</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
 @code {
     private List<Piatto> sushi;
+    private string messaggio = "";
+    private Piatto? piattoDaModificare;
+    private bool mostraModaleModifica = false;
+    private Dictionary<int, int> carrello = new(); // PiattoId -> Quantità
+
+
+
+    // dizionario per tenere traccia del numero di aggiunte per piatto
+    private Dictionary<int, int> contatori = new();
 
     protected override async Task OnInitializedAsync()
     {
         sushi = await DbContext.Piatti.Where(p => p.Type == "Hosomaki").ToListAsync();
+
+        // 🔄 inizializza i contatori da CarrelloFake
+        contatori.Clear();
+        foreach (var kvp in CarrelloFake.Data)
+        {
+            contatori[kvp.Key] = kvp.Value;
+        }
     }
+
+    
+    private async Task AggiungiAlCarrello(int piattoId)
+    {
+        Console.WriteLine($"Aggiunto piatto {piattoId}");
+
+        if (CarrelloFake.Data.ContainsKey(piattoId))
+            CarrelloFake.Data[piattoId]++;
+        else
+            CarrelloFake.Data[piattoId] = 1;
+
+        // 🔁 aggiorna il contatore locale (UI)
+        if (contatori.ContainsKey(piattoId))
+            contatori[piattoId]++;
+        else
+            contatori[piattoId] = 1;
+
+        // ✅ messaggio di conferma
+        messaggio = "Piatto aggiunto al carrello!";
+        StateHasChanged();
+
+        // 🕒 fai sparire il messaggio dopo 2 secondi
+        await Task.Delay(2000);
+        messaggio = "";
+        StateHasChanged();
+    }
+
+
+
+
+    
+    private void ApriModaleModifica(int id)
+    {
+        piattoDaModificare = sushi.FirstOrDefault(p => p.Id == id);
+        mostraModaleModifica = true;
+    }
+    
+    private async Task SalvaModifiche()
+    {
+        if (piattoDaModificare is null)
+            return;
+
+        DbContext.Piatti.Update(piattoDaModificare);
+        await DbContext.SaveChangesAsync();
+    
+        messaggio = "Piatto modificato con successo!";
+        mostraModaleModifica = false;
+    }
+    
+    private async Task EliminaPiatto(int id)
+    {
+        var piatto = await DbContext.Piatti.FindAsync(id);
+        if (piatto is null)
+        {
+            messaggio = "Piatto non trovato.";
+            return;
+        }
+
+        DbContext.Piatti.Remove(piatto);
+        await DbContext.SaveChangesAsync();
+
+        sushi.Remove(piatto); // aggiorna la lista senza ricaricare tutto
+        messaggio = "Piatto eliminato con successo!";
+    }
+    
 }

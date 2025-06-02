@@ -2,6 +2,7 @@
 @using SushiApp.Models.Entities
 @using SushiApp.Models.Services
 @inject OrdineService OrdineService
+@rendermode InteractiveServer
 
 <h3>Lista Ordini</h3>
 
@@ -66,7 +67,9 @@ else
     private async Task CambiaStato(Ordine ordine, string nuovoStato)
     {
         ordine.Stato = nuovoStato;
-        await OrdineService.AggiornaStatoOrdineAsync(ordine); // Supponendo che tu abbia questo metodo nel servizio
+        await OrdineService.AggiornaStatoOrdineAsync(ordine);
+        ordini = await OrdineService.GetTuttiGliOrdiniAsync(); // ricarica lista aggiornata
         StateHasChanged();
     }
+
 }

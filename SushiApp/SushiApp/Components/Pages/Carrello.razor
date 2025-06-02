@@ -1,0 +1,167 @@
+ @page "/carrello"
+@using SushiApp.Models.Entities
+@using SushiApp.Models.Services
+@using Microsoft.EntityFrameworkCore
+@inject SushiDbContext DbContext
+@inject OrdineService OrdineService
+@inject NavigationManager NavManager
+@inject AuthenticationStateProvider AuthStateProvider
+@rendermode InteractiveServer
+
+<h3>Il tuo Carrello</h3>
+
+@if (carrello.Count == 0)
+{
+    <p>Il carrello è vuoto.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nome Piatto</th>
+                <th>Quantità</th>
+                <th>Prezzo Unitario</th>
+                <th>Totale</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var voce in carrello)
+            {
+                var piatto = sushi.FirstOrDefault(p => p.Id == voce.Key);
+                if (piatto != null)
+                {
+                    <tr>
+                        <td>@piatto.Name</td>
+                        <td>@voce.Value</td>
+                        <td>@($"{piatto.Price} €")</td>
+                        <td>@($"{(piatto.Price * voce.Value):0.00} €")</td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" @onclick="() => RimuoviDalCarrello(piatto.Id)">Rimuovi</button>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end fw-bold">Totale:</td>
+                <td colspan="2">@($"{TotaleCarrello:0.00} €")</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <button class="btn btn-success" @onclick="InviaOrdine">Invia Ordine alla Cucina</button>
+}
+
+@if (!string.IsNullOrEmpty(messaggio))
+{
+    <div class="alert alert-info mt-3">@messaggio</div>
+}
+
+@code {
+    private Dictionary<int, int> carrello = new();
+    private List<Piatto> sushi = new();
+    private string messaggio = "";
+    private List<Ordine> ordiniTavolo;
+
+    protected override async Task OnInitializedAsync()
+    {
+        carrello = CarrelloFake.Data;
+
+        var ids = carrello.Keys.ToList();
+        sushi = await DbContext.Piatti.Where(p => ids.Contains(p.Id)).ToListAsync();
+    }
+
+    private void RimuoviDalCarrello(int piattoId)
+    {
+        Console.WriteLine($"Provo a rimuovere il piatto {piattoId}");
+        if (carrello.ContainsKey(piattoId))
+        {
+            carrello.Remove(piattoId);
+            StateHasChanged();
+        }
+    }
+
+    private decimal TotaleCarrello =>
+        carrello.Sum(voce =>
+        {
+            var piatto = sushi.FirstOrDefault(p => p.Id == voce.Key);
+            return piatto != null ? (decimal)piatto.Price * voce.Value : 0m;
+        });
+    
+    private async Task CaricaOrdiniDelTavolo()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated ?? false)
+        {
+            var tavolo = user.Identity.Name;
+            ordiniTavolo = await OrdineService.GetOrdiniPerTavoloAsync(tavolo);
+        }
+        else
+        {
+            ordiniTavolo = new List<Ordine>();
+        }
+    }
+
+    private string statoOrdine = "";
+
+    private async Task InviaOrdine()
+    {
+        messaggio = "Invio ordine in corso...";
+        statoOrdine = "";
+        StateHasChanged();
+
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (!user.Identity?.IsAuthenticated ?? true)
+        {
+            messaggio = "Devi essere autenticato per inviare un ordine.";
+            return;
+        }
+
+        var tavolo = user.Identity.Name;
+
+        if (string.IsNullOrWhiteSpace(tavolo) || carrello.Count == 0)
+        {
+            messaggio = "Carrello vuoto o utente non valido.";
+            return;
+        }
+
+        try
+        {
+            var ordine = await OrdineService.CreaOrdineAsync(tavolo);
+
+            foreach (var voce in carrello)
+            {
+                for (int i = 0; i < voce.Value; i++)
+                {
+                    await OrdineService.AggiungiProdottoAsync(tavolo, voce.Key);
+                }
+            }
+
+            statoOrdine = await OrdineService.GetStatoOrdineAsync(ordine.Id);
+
+            messaggio = $"Ordine inviato con successo per il tavolo {tavolo}!";
+
+            // Pulisci carrello
+            carrello.Clear();
+            sushi.Clear();
+
+            // Ricarica gli ordini
+            await CaricaOrdiniDelTavolo();
+        }
+        catch (Exception ex)
+        {
+            messaggio = $"Errore durante l'invio dell'ordine: {ex.Message}";
+            statoOrdine = "";
+        }
+
+        StateHasChanged();
+    }
+
+}

@@ -103,6 +103,22 @@ public class OrdineService
         // Crea un nuovo ordine vuoto per quel tavolo
         return await CreaOrdineAsync(tavolo);
     }
+    
+    public async Task<string> GetStatoOrdineAsync(int ordineId)
+    {
+        var ordine = await _dbContext.Ordini.FindAsync(ordineId);
+        return ordine?.Stato ?? "Stato non disponibile";
+    }
+    public async Task<List<Ordine>> GetOrdiniPerTavoloAsync(string tavolo)
+    {
+        return await _dbContext.Ordini
+            .Include(o => o.Dettagli)
+            .ThenInclude(d => d.Piatto)
+            .Where(o => o.Tavolo == tavolo)
+            .OrderByDescending(o => o.DataOrdine)
+            .ToListAsync();
+    }
+
 
 
 }
