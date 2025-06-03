@@ -14,5 +14,6 @@ public class SushiDbContext : DbContext
     
     public DbSet<Ordine> Ordini { get; set; }
     public DbSet<OrdineDettaglio> OrdineDettagli { get; set; }
- 
+    
+    public DbSet<Prenotazione> Prenotazioni { get; set; }
 }

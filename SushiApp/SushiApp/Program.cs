@@ -31,6 +31,7 @@ builder.Services.AddCascadingAuthenticationState();
 //fine guida autenticazione
 
 builder.Services.AddScoped<OrdineService>();
+builder.Services.AddScoped<PrenotazioneService>();
 
 
 builder.Services.AddDbContext<SushiDbContext>(options =>

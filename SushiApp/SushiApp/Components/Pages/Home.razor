@@ -1,5 +1,5 @@
 ﻿@page "/"
-
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
 @inject NavigationManager NavManager
 @inject AuthenticationStateProvider AuthStateProvider
 @rendermode InteractiveServer
@@ -21,7 +21,7 @@
         
         <div class="nav-right">
             <div class="phone">+39 332 438 0111</div>
-            <button class="reservation-btn">PRENOTA ORA!</button>
+            <button class="reservation-btn" @onclick="VaiAPrenotazione">PRENOTA ORA!</button>
         </div>
     </header>
 
@@ -112,5 +112,10 @@
         {
             NavManager.NavigateTo("/login");
         }
+    }
+    
+    private void VaiAPrenotazione()
+    {
+        NavManager.NavigateTo("/nuovaprenotazione");
     }
 }

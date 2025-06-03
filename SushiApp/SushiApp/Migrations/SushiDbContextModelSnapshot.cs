@@ -92,6 +92,43 @@ namespace SushiApp.Migrations
                     b.ToTable("Piatti");
                 });
 
+            modelBuilder.Entity("SushiApp.Models.Entities.Prenotazione", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("DataCreazione")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DataPrenotazione")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("NumeroPersone")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<TimeSpan>("OrarioPrenotazione")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Stato")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Prenotazioni");
+                });
+
             modelBuilder.Entity("SushiApp.Models.Entities.UserAccount", b =>
                 {
                     b.Property<int>("Id")
@@ -100,6 +137,7 @@ namespace SushiApp.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("Password")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("password");
@@ -110,6 +148,7 @@ namespace SushiApp.Migrations
                         .HasColumnName("role");
 
                     b.Property<string>("UserName")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("user_name");

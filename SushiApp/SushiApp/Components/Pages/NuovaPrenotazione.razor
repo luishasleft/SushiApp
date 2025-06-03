@@ -1,0 +1,264 @@
+@page "/nuovaprenotazione"
+
+@using SushiApp.Models.Entities
+@using SushiApp.Models.Services
+@inject SushiDbContext DbContext
+@inject NavigationManager Navigation
+@inject NavigationManager NavManager
+@inject PrenotazioneService PrenotazioneService
+@rendermode InteractiveServer
+
+
+<PageTitle>Prenotazione tavolo</PageTitle>
+
+<div class="deba-container">
+    <!-- Header Navigation -->
+    <header class="deba-header">
+        <div class="nav-left">
+            <div class="lang-selector">
+                <span>ENG - ITA</span>
+            </div>
+        </div>
+
+        <div class="logo">
+            <a href="/" class="homewasabi"><h1>WASABI<br/>GARDEN<br/><span class="logo-sub">PERUGIA</span></h1></a>
+        </div>
+
+        <div class="nav-right">
+            <div class="phone">+39 332 438 0111</div>
+            
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="hero-section">
+        <div class="hero-content">
+            <div class="row">
+                <div class="login-box">
+                    <h3>Prenota il tuo tavolo</h3>
+
+                    <EditForm Model="nuovaPrenotazione" OnValidSubmit="CreaPrenotazione" FormName="prenotazione">
+                        <DataAnnotationsValidator />
+
+                        <div class="mb-3">
+                            <label for="nome">Nome</label>
+                            <InputText id="nome" class="form-control" @bind-Value="nuovaPrenotazione.Nome"
+                                       placeholder="Inserisci il tuo nome completo" />
+                            <ValidationMessage For="@(() => nuovaPrenotazione.Nome)" class="text-danger" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <InputText id="email" type="email" class="form-control" @bind-Value="nuovaPrenotazione.Email"
+                                       placeholder="esempio@email.com" />
+                            <ValidationMessage For="@(() => nuovaPrenotazione.Email)" class="text-danger" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="data">Data Prenotazione</label>
+                            <InputDate id="data" class="form-control" @bind-Value="nuovaPrenotazione.DataPrenotazione"
+                                       min="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                            <ValidationMessage For="@(() => nuovaPrenotazione.DataPrenotazione)" class="text-danger" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="orario">Orario</label>
+                            <select id="orario" class="form-control" @onchange="OnOrarioChanged">
+                                <option value="">Seleziona un orario</option>
+                                @foreach (var orario in orariDisponibili)
+                                {
+                                    <option value="@orario.ToString(@"hh\:mm")">@orario.ToString(@"hh\:mm")</option>
+                                }
+                            </select>
+                            <ValidationMessage For="@(() => nuovaPrenotazione.OrarioPrenotazione)" class="text-danger" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="persone">Numero Persone</label>
+                            <InputNumber id="persone" class="form-control" @bind-Value="nuovaPrenotazione.NumeroPersone"
+                                         min="1" max="20" />
+                            <ValidationMessage For="@(() => nuovaPrenotazione.NumeroPersone)" class="text-danger" />
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(messaggioErrore))
+                        {
+                            <div class="text-danger">@messaggioErrore</div>
+                        }
+
+                        @if (!string.IsNullOrEmpty(messaggioSuccesso))
+                        {
+                            <div style="color: #4CAF50; text-align: center; margin: 1rem 0;">@messaggioSuccesso</div>
+                        }
+
+                        <button type="submit" class="btn-primary" disabled="@isSubmitting">
+                            @if (isSubmitting)
+                            {
+                                <span>Creazione in corso...</span>
+                            }
+                            else
+                            {
+                                <span>Prenota Tavolo</span>
+                            }
+                        </button>
+                    </EditForm>
+                    
+                </div>
+            </div>
+        </div> <!-- chiusura .hero-content -->
+
+        <!-- Background Image Overlay -->
+        <div class="hero-background"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="deba-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-info">
+                    <h3>WASABI GARDEN</h3>
+                    <p>Via Garibaldi 123, Perugia</p>
+                    <p>Tel: +39 332 438 0111</p>
+                    <p>info@wasabigarden.it</p>
+                </div>
+            </div>
+
+            <div class="footer-center">
+                <div class="footer-hours">
+                    <h4>ORARI DI APERTURA</h4>
+                    <div class="hours-grid">
+                        <div class="hours-item">
+                            <span>Lun - Ven</span>
+                            <span>19:00 - 23:30</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Sab - Dom</span>
+                            <span>12:00 - 15:00 | 19:00 - 24:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-social">
+                    <h4>SEGUICI</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">TripAdvisor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-divider"></div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Wasabi Garden Perugia. Tutti i diritti riservati.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#" class="footer-link">Termini di Servizio</a>
+                    <span class="separator">|</span>
+                    <a href="#" class="footer-link">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+
+
+
+
+@code {
+    private Prenotazione nuovaPrenotazione = new();
+    private string messaggioErrore = "";
+    private string messaggioSuccesso = "";
+    private bool isSubmitting = false;
+
+    private List<TimeSpan> orariDisponibili = new()
+    {
+        new TimeSpan(18, 0, 0), // 18:00
+        new TimeSpan(18, 30, 0), // 18:30
+        new TimeSpan(19, 0, 0), // 19:00
+        new TimeSpan(19, 30, 0), // 19:30
+        new TimeSpan(20, 0, 0), // 20:00
+        new TimeSpan(20, 30, 0), // 20:30
+        new TimeSpan(21, 0, 0), // 21:00
+        new TimeSpan(21, 30, 0), // 21:30
+        new TimeSpan(22, 0, 0), // 22:00
+        new TimeSpan(22, 30, 0) // 22:30
+    };
+
+    protected override void OnInitialized()
+    {
+        // Imposta la data minima a oggi
+        nuovaPrenotazione.DataPrenotazione = DateTime.Today;
+    }
+
+    private void OnOrarioChanged(ChangeEventArgs e)
+    {
+        if (TimeSpan.TryParse(e.Value?.ToString(), out var orario))
+        {
+            nuovaPrenotazione.OrarioPrenotazione = orario;
+        }
+    }
+
+    private async Task CreaPrenotazione()
+    {
+        isSubmitting = true;
+        messaggioErrore = "";
+        messaggioSuccesso = "";
+
+        try
+        {
+            // Validazioni aggiuntive
+            if (nuovaPrenotazione.DataPrenotazione < DateTime.Today)
+            {
+                messaggioErrore = "Non è possibile prenotare per una data passata.";
+                return;
+            }
+
+            if (nuovaPrenotazione.OrarioPrenotazione == TimeSpan.Zero)
+            {
+                messaggioErrore = "Seleziona un orario per la prenotazione.";
+                return;
+            }
+
+
+            // Crea la prenotazione
+            var successo = await PrenotazioneService.CreaPrenotazioneAsync(nuovaPrenotazione);
+
+            if (successo)
+            {
+                messaggioSuccesso = "Prenotazione creata con successo! Ti contatteremo per confermare.";
+                nuovaPrenotazione = new Prenotazione
+                {
+                    DataPrenotazione = DateTime.Today,
+                    NumeroPersone = 2
+                };
+                StateHasChanged();
+
+                // Reindirizza dopo 3 secondi
+                await Task.Delay(3000);
+                Navigation.NavigateTo("/");
+            }
+            else
+            {
+                messaggioErrore = "Errore durante la creazione della prenotazione. Riprova.";
+            }
+        }
+        catch (Exception ex)
+        {
+            messaggioErrore = "Si è verificato un errore imprevisto. Riprova più tardi.";
+        }
+        finally
+        {
+            isSubmitting = false;
+            StateHasChanged();
+        }
+    }
+    
+
+}    

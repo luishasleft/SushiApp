@@ -1,0 +1,151 @@
+@page "/prenotazioni"
+@using SushiApp.Models.Entities
+@using SushiApp.Models.Services
+@inject PrenotazioneService PrenotazioneService
+@rendermode InteractiveServer
+
+<h3>Lista Prenotazioni</h3>
+
+@if (prenotazioni == null)
+{
+    <p>Caricamento prenotazioni...</p>
+}
+else if (prenotazioni.Count == 0)
+{
+    <p>Nessuna prenotazione trovata.</p>
+}
+else
+{
+
+    <table class="table table-prenotazioni">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Data</th>
+                <th>Orario</th>
+                <th>Persone</th>
+                <th>Stato</th>
+                <th>Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prenotazione in prenotazioni)
+            {
+                <tr>
+                    <td>@prenotazione.Nome</td>
+                    <td>@prenotazione.Email</td>
+                    <td>@prenotazione.DataPrenotazione.ToString("dd/MM/yyyy")</td>
+                    <td>@prenotazione.OrarioPrenotazione.ToString(@"hh\:mm")</td>
+                    <td>@prenotazione.NumeroPersone</td>
+                    <td>
+                        <select class="form-select" @onchange="e => CambiaStato(prenotazione, e.Value.ToString())">
+                            @foreach (var stato in statiPossibili)
+                            {
+                                <option value="@stato" selected="@(prenotazione.Stato == stato)">
+                                    @stato
+                                </option>
+                            }
+                        </select>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" @onclick="() => EliminaPrenotazione(prenotazione.Id)">
+                            Elimina
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div style="margin-top: 20px;">
+        <p><strong>Totale prenotazioni:</strong> @prenotazioni.Count</p>
+        <p><strong>Prenotazioni di oggi:</strong> @prenotazioniOggi</p>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(messaggioFeedback))
+{
+    <div class="alert alert-success" style="margin-top: 20px;">
+        @messaggioFeedback
+    </div>
+}
+
+@code {
+    private List<Prenotazione> prenotazioni;
+    private string messaggioFeedback = "";
+    private int prenotazioniOggi = 0;
+
+    private List<string> statiPossibili = new() { "Confermata", "In attesa", "Completata", "Annullata", "No show" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CaricaPrenotazioni();
+    }
+
+    private async Task CaricaPrenotazioni()
+    {
+        prenotazioni = await PrenotazioneService.GetTutteLePrenotazioniAsync();
+        prenotazioniOggi = prenotazioni.Count(p => p.DataPrenotazione.Date == DateTime.Today);
+        StateHasChanged();
+    }
+
+    private async Task CambiaStato(Prenotazione prenotazione, string nuovoStato)
+    {
+        try
+        {
+            prenotazione.Stato = nuovoStato;
+            var successo = await PrenotazioneService.AggiornaStatoPrenotazioneAsync(prenotazione);
+
+            if (successo)
+            {
+                messaggioFeedback = $"Stato della prenotazione di {prenotazione.Nome} aggiornato a: {nuovoStato}";
+                await CaricaPrenotazioni();
+
+                await Task.Delay(3000);
+                messaggioFeedback = "";
+                StateHasChanged();
+            }
+        }
+        catch
+        {
+            messaggioFeedback = "Errore durante l'aggiornamento dello stato.";
+        }
+    }
+
+    private async Task EliminaPrenotazione(int id)
+    {
+        try
+        {
+            var prenotazione = prenotazioni.FirstOrDefault(p => p.Id == id);
+            if (prenotazione != null && Confirm($"Sei sicuro di voler eliminare la prenotazione di {prenotazione.Nome}?"))
+            {
+                var successo = await PrenotazioneService.EliminaPrenotazioneAsync(id);
+
+                if (successo)
+                {
+                    messaggioFeedback = $"Prenotazione di {prenotazione.Nome} eliminata con successo.";
+                    await CaricaPrenotazioni();
+
+                    await Task.Delay(3000);
+                    messaggioFeedback = "";
+                    StateHasChanged();
+                }
+                else
+                {
+                    messaggioFeedback = "Errore durante l'eliminazione della prenotazione.";
+                }
+            }
+        }
+        catch
+        {
+            messaggioFeedback = "Errore durante l'eliminazione della prenotazione.";
+        }
+    }
+
+    // Per ora confermo sempre, poi metti un vero JS interop se vuoi
+    private bool Confirm(string message)
+    {
+        return true;
+    }
+}
