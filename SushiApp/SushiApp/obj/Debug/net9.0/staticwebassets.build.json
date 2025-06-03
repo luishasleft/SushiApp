@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qD170Sx2DDw2yaeiuGuOPiJGLzv9kO8Vje4FCxagos4=",
+  "Hash": "HA/aEsb8GbvPMnIGJ8cqjPF269HkgWkF/Tjbfm1+LSU=",
   "Source": "SushiApp",
   "BasePath": "_content/SushiApp",
   "Mode": "Default",
@@ -542,12 +542,12 @@
       "OriginalItemSpec": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-flhxfubr17.gz",
+      "Identity": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-isspnxeikh.gz",
       "SourceId": "SushiApp",
       "SourceType": "Computed",
       "ContentRoot": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/SushiApp",
-      "RelativePath": "SushiApp#[.{fingerprint=flhxfubr17}]!.bundle.scp.css.gz",
+      "RelativePath": "SushiApp#[.{fingerprint=isspnxeikh}]!.bundle.scp.css.gz",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Alternative",
@@ -556,8 +556,8 @@
       "RelatedAsset": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/projectbundle/SushiApp.bundle.scp.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "0pdbjt31yv",
-      "Integrity": "FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM=",
+      "Fingerprint": "ik2mqw8pf2",
+      "Integrity": "glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/projectbundle/SushiApp.bundle.scp.css"
@@ -626,12 +626,12 @@
       "OriginalItemSpec": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
     },
     {
-      "Identity": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-flhxfubr17.gz",
+      "Identity": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-isspnxeikh.gz",
       "SourceId": "SushiApp",
       "SourceType": "Computed",
       "ContentRoot": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/SushiApp",
-      "RelativePath": "SushiApp#[.{fingerprint=flhxfubr17}]?.styles.css.gz",
+      "RelativePath": "SushiApp#[.{fingerprint=isspnxeikh}]?.styles.css.gz",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Alternative",
@@ -640,8 +640,8 @@
       "RelatedAsset": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/bundle/SushiApp.styles.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "0pdbjt31yv",
-      "Integrity": "FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM=",
+      "Fingerprint": "ik2mqw8pf2",
+      "Integrity": "glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/bundle/SushiApp.styles.css"
@@ -1018,8 +1018,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "flhxfubr17",
-      "Integrity": "U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I=",
+      "Fingerprint": "isspnxeikh",
+      "Integrity": "AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/bundle/SushiApp.styles.css"
@@ -1039,8 +1039,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "flhxfubr17",
-      "Integrity": "U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I=",
+      "Fingerprint": "isspnxeikh",
+      "Integrity": "AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/projectbundle/SushiApp.bundle.scp.css"
@@ -15507,12 +15507,12 @@
     },
     {
       "Route": "SushiApp.bundle.scp.css",
-      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-flhxfubr17.gz",
+      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-isspnxeikh.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000158503725"
+          "Quality": "0.000149700599"
         }
       ],
       "ResponseHeaders": [
@@ -15522,15 +15522,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6308"
+          "Value": "6679"
         },
         {
           "Name": "ETag",
-          "Value": "\"FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM=\""
+          "Value": "\"glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:22:48 GMT"
+          "Value": "Tue, 03 Jun 2025 18:16:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15550,13 +15550,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I=\""
+          "Value": "W/\"AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I="
+          "Value": "sha256-AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM="
         }
       ]
     },
@@ -15571,7 +15571,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "53342"
+          "Value": "62487"
         },
         {
           "Name": "Content-Type",
@@ -15579,11 +15579,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I=\""
+          "Value": "\"AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:22:48 GMT"
+          "Value": "Tue, 03 Jun 2025 18:16:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15593,13 +15593,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I="
+          "Value": "sha256-AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM="
         }
       ]
     },
     {
       "Route": "SushiApp.bundle.scp.css.gz",
-      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-flhxfubr17.gz",
+      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-isspnxeikh.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15608,7 +15608,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6308"
+          "Value": "6679"
         },
         {
           "Name": "Content-Type",
@@ -15616,11 +15616,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM=\""
+          "Value": "\"glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:22:48 GMT"
+          "Value": "Tue, 03 Jun 2025 18:16:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15638,18 +15638,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM="
+          "Value": "sha256-glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw="
         }
       ]
     },
     {
-      "Route": "SushiApp.flhxfubr17.bundle.scp.css",
-      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-flhxfubr17.gz",
+      "Route": "SushiApp.isspnxeikh.bundle.scp.css",
+      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-isspnxeikh.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000158503725"
+          "Quality": "0.000149700599"
         }
       ],
       "ResponseHeaders": [
@@ -15659,15 +15659,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6308"
+          "Value": "6679"
         },
         {
           "Name": "ETag",
-          "Value": "\"FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM=\""
+          "Value": "\"glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:22:48 GMT"
+          "Value": "Tue, 03 Jun 2025 18:16:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15687,13 +15687,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I=\""
+          "Value": "W/\"AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "flhxfubr17"
+          "Value": "isspnxeikh"
         },
         {
           "Name": "label",
@@ -15701,12 +15701,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I="
+          "Value": "sha256-AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM="
         }
       ]
     },
     {
-      "Route": "SushiApp.flhxfubr17.bundle.scp.css",
+      "Route": "SushiApp.isspnxeikh.bundle.scp.css",
       "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/projectbundle/SushiApp.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -15716,7 +15716,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "53342"
+          "Value": "62487"
         },
         {
           "Name": "Content-Type",
@@ -15724,11 +15724,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I=\""
+          "Value": "\"AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:22:48 GMT"
+          "Value": "Tue, 03 Jun 2025 18:16:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15738,7 +15738,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "flhxfubr17"
+          "Value": "isspnxeikh"
         },
         {
           "Name": "label",
@@ -15746,13 +15746,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I="
+          "Value": "sha256-AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM="
         }
       ]
     },
     {
-      "Route": "SushiApp.flhxfubr17.bundle.scp.css.gz",
-      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-flhxfubr17.gz",
+      "Route": "SushiApp.isspnxeikh.bundle.scp.css.gz",
+      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-isspnxeikh.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15761,7 +15761,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6308"
+          "Value": "6679"
         },
         {
           "Name": "Content-Type",
@@ -15769,11 +15769,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM=\""
+          "Value": "\"glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:22:48 GMT"
+          "Value": "Tue, 03 Jun 2025 18:16:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15791,7 +15791,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "flhxfubr17"
+          "Value": "isspnxeikh"
         },
         {
           "Name": "label",
@@ -15799,18 +15799,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM="
+          "Value": "sha256-glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw="
         }
       ]
     },
     {
-      "Route": "SushiApp.flhxfubr17.styles.css",
-      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-flhxfubr17.gz",
+      "Route": "SushiApp.isspnxeikh.styles.css",
+      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-isspnxeikh.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000158503725"
+          "Quality": "0.000149700599"
         }
       ],
       "ResponseHeaders": [
@@ -15820,15 +15820,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6308"
+          "Value": "6679"
         },
         {
           "Name": "ETag",
-          "Value": "\"FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM=\""
+          "Value": "\"glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:22:48 GMT"
+          "Value": "Tue, 03 Jun 2025 18:16:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15848,13 +15848,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I=\""
+          "Value": "W/\"AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "flhxfubr17"
+          "Value": "isspnxeikh"
         },
         {
           "Name": "label",
@@ -15862,12 +15862,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I="
+          "Value": "sha256-AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM="
         }
       ]
     },
     {
-      "Route": "SushiApp.flhxfubr17.styles.css",
+      "Route": "SushiApp.isspnxeikh.styles.css",
       "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/bundle/SushiApp.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -15877,7 +15877,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "53342"
+          "Value": "62487"
         },
         {
           "Name": "Content-Type",
@@ -15885,11 +15885,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I=\""
+          "Value": "\"AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:22:48 GMT"
+          "Value": "Tue, 03 Jun 2025 18:16:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15899,7 +15899,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "flhxfubr17"
+          "Value": "isspnxeikh"
         },
         {
           "Name": "label",
@@ -15907,13 +15907,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I="
+          "Value": "sha256-AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM="
         }
       ]
     },
     {
-      "Route": "SushiApp.flhxfubr17.styles.css.gz",
-      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-flhxfubr17.gz",
+      "Route": "SushiApp.isspnxeikh.styles.css.gz",
+      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-isspnxeikh.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15922,7 +15922,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6308"
+          "Value": "6679"
         },
         {
           "Name": "Content-Type",
@@ -15930,11 +15930,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM=\""
+          "Value": "\"glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:22:48 GMT"
+          "Value": "Tue, 03 Jun 2025 18:16:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15952,7 +15952,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "flhxfubr17"
+          "Value": "isspnxeikh"
         },
         {
           "Name": "label",
@@ -15960,18 +15960,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM="
+          "Value": "sha256-glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw="
         }
       ]
     },
     {
       "Route": "SushiApp.styles.css",
-      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-flhxfubr17.gz",
+      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-isspnxeikh.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000158503725"
+          "Quality": "0.000149700599"
         }
       ],
       "ResponseHeaders": [
@@ -15981,15 +15981,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6308"
+          "Value": "6679"
         },
         {
           "Name": "ETag",
-          "Value": "\"FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM=\""
+          "Value": "\"glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:22:48 GMT"
+          "Value": "Tue, 03 Jun 2025 18:16:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16009,13 +16009,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I=\""
+          "Value": "W/\"AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I="
+          "Value": "sha256-AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM="
         }
       ]
     },
@@ -16030,7 +16030,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "53342"
+          "Value": "62487"
         },
         {
           "Name": "Content-Type",
@@ -16038,11 +16038,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I=\""
+          "Value": "\"AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:22:48 GMT"
+          "Value": "Tue, 03 Jun 2025 18:16:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16052,13 +16052,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-U+7qeKrEnSFHeZ2QbH8vCXOMfIhMTFzUXTFHDIG4x2I="
+          "Value": "sha256-AlnatJeoZ38b+AmwKRfnF62lGoEkjYj5fbptaTVkMmM="
         }
       ]
     },
     {
       "Route": "SushiApp.styles.css.gz",
-      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-flhxfubr17.gz",
+      "AssetFile": "/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-isspnxeikh.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -16067,7 +16067,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6308"
+          "Value": "6679"
         },
         {
           "Name": "Content-Type",
@@ -16075,11 +16075,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM=\""
+          "Value": "\"glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:22:48 GMT"
+          "Value": "Tue, 03 Jun 2025 18:16:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16097,7 +16097,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-FBF9JcpmcUk3fZj8Kj8OihmxgaKJauAa2m/YSREdNrM="
+          "Value": "sha256-glCydc3AX70CnfpaTSO4Yy3To8eqawnCh05v8O3rxcw="
         }
       ]
     }

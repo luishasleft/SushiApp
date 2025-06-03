@@ -2,7 +2,7 @@
 @inject NavigationManager NavManager
 
 @code {
-    private static readonly string[] HiddenRoutes = new[] { "", "login", "register", "logout","nuovaprenotazione" };
+    private static readonly string[] HiddenRoutes = new[] { "", "login", "register", "logout","nuovaprenotazione", "mappa"};
 
     private string CurrentPath => NavManager.ToBaseRelativePath(NavManager.Uri).TrimEnd('/').ToLowerInvariant();
 

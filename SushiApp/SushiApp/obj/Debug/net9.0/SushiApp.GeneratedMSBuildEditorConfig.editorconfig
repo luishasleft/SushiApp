@@ -120,6 +120,10 @@ build_metadata.AdditionalFiles.CssScope = b-jc837tq1z0
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-m5kxu8hlel
 
+[/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Pages/Mappa.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9NYXBwYS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-otdmj9pmzx
+
 [/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Pages/NuovaPrenotazione.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9OdW92YVByZW5vdGF6aW9uZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-0pjbriwelf

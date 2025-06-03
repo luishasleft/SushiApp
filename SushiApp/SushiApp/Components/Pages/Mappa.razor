@@ -1,0 +1,90 @@
+@page "/mappa"
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@inject NavigationManager NavManager
+@inject AuthenticationStateProvider AuthStateProvider
+@rendermode InteractiveServer
+
+<PageTitle>Wasabi Garden Perugia</PageTitle>
+
+<div class="deba-container">
+    <!-- Header Navigation -->
+    <header class="deba-header">
+        <div class="nav-left">
+        </div>
+
+        <div class="logo">
+            <a href="/"><h1>WASABI<br/>GARDEN<br/><span class="logo-sub">PERUGIA</span></h1></a>
+        </div>
+
+        <div class="nav-right">
+            <div class="phone">+39 332 438 0111</div>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="hero-section">
+        <div class="hero-content">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11651.294477244091!2d12.383759923992983!3d43.10822148091501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132ea0812b39a1d5%3A0x71ece1c04fece1a6!2sPiazza%20IV%20Novembre!5e0!3m2!1sit!2sit!4v1748974476584!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- Background Image Overlay -->
+        <div class="hero-background"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="deba-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-info">
+                    <h3>WASABI GARDEN</h3>
+                    <p>Via Garibaldi 123, Perugia</p>
+                    <p>Tel: +39 332 438 0111</p>
+                    <p>info@wasabigarden.it</p>
+                </div>
+            </div>
+
+            <div class="footer-center">
+                <div class="footer-hours">
+                    <h4>ORARI DI APERTURA</h4>
+                    <div class="hours-grid">
+                        <div class="hours-item">
+                            <span>Lun - Ven</span>
+                            <span>19:00 - 23:30</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Sab - Dom</span>
+                            <span>12:00 - 15:00 | 19:00 - 24:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-social">
+                    <h4>SEGUICI</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">TripAdvisor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-divider"></div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Wasabi Garden Perugia. Tutti i diritti riservati.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#" class="footer-link">Termini di Servizio</a>
+                    <span class="separator">|</span>
+                    <a href="#" class="footer-link">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+

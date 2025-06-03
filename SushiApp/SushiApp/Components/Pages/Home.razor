@@ -11,7 +11,7 @@
     <header class="deba-header">
         <div class="nav-left">
             <div class="lang-selector">
-                <span>ENG - ITA</span>
+                <button class="reservation-btn" @onclick="VaiAMaps">Dove siamo</button>
             </div>
         </div>
         
@@ -117,5 +117,10 @@
     private void VaiAPrenotazione()
     {
         NavManager.NavigateTo("/nuovaprenotazione");
+    }
+
+    private void VaiAMaps()
+    {
+        NavManager.NavigateTo("/mappa");
     }
 }
