@@ -204,7 +204,10 @@
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/SushiApp.genruntimeconfig.cache
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/ref/SushiApp.dll
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/1wvuyrd6ff-c9hxrnmwlv.gz
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/8x90fzaxze-d2yrlcgifp.gz
 /Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/Components/Pages/Home.razor.rz.scp.css
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-qhuop32jo8.gz
-/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-qhuop32jo8.gz
+/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/Components/Pages/Account/Login.razor.rz.scp.css
+/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/Components/Pages/Account/Register.razor.rz.scp.css
+/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/scopedcss/Components/Pages/Account/Logout.razor.rz.scp.css
+/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/mxil38jdlr-55nuvhnf3w.gz
+/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/iargljp763-55nuvhnf3w.gz
+/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/obj/Debug/net9.0/compressed/8x90fzaxze-mmkwt72bfy.gz

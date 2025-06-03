@@ -1,20 +1,19 @@
-﻿<div class="top-row ps-3 navbar  navbar-dark">
+﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Wasabi Garden</a>
     </div>
 </div>
-
 <input type="checkbox" title="Navigation menu" class="navbar-toggler"/>
-
-
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler')?.click()">
     <nav class="nav flex-column">
+        <!-- HOME -->
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
             </NavLink>
         </div>
-        
+
+        <!-- Solo per Cucina -->
         <AuthorizeView Roles="Cucina">
             <Authorized>
                 <div class="nav-item px-3">
@@ -24,61 +23,23 @@
                 </div>
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="ordini">
-                        <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Ordini
+                        <span class="bi bi-list-ul" aria-hidden="true"></span> Ordini
                     </NavLink>
                 </div>
             </Authorized>
         </AuthorizeView>
-        
-        <AuthorizeView Roles="Client, Cucina, Tavolo">
+
+        <!-- Clienti, Tavoli, Cucina: possono vedere i piatti -->
+        <AuthorizeView Roles="Client,Cucina,Tavolo">
             <Authorized>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="nigiri">
-                        <span class="bi bi-dot"></span> Nigiri
-                    </NavLink>
-                </div>
-
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="poke">
-                        <span class="bi bi-dot"></span> Poke
-                    </NavLink>
-                </div>
-
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="tacos">
-                        <span class="bi bi-dot"></span> Tacos
-                    </NavLink>
-                </div>
-
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="hosomaki">
-                        <span class="bi bi-dot"></span> Hosomaki
-                    </NavLink>
-                </div>
-
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="maki">
-                        <span class="bi bi-dot"></span> Maki
-                    </NavLink>
-                </div>
-
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="salse">
-                        <span class="bi bi-dot"></span> Salse
-                    </NavLink>
-                </div>
-
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="dolci">
-                        <span class="bi bi-dot"></span> Dolci
-                    </NavLink>
-                </div>
-
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="bibite">
-                        <span class="bi bi-dot"></span> Bibite
-                    </NavLink>
-                </div>
+                @foreach (var voce in new[] { "nigiri", "poke", "tacos", "hosomaki", "maki", "salse", "dolci", "bibite" })
+                {
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="@voce">
+                            <span class="bi bi-dot"></span> @voce.First().ToString().ToUpper()@voce.Substring(1)
+                        </NavLink>
+                    </div>
+                }
             </Authorized>
         </AuthorizeView>
     </nav>

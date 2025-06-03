@@ -36,18 +36,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BY2NvdW50L0FjY2Vzc0RlbmllZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Pages/Account/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BY2NvdW50L0xvZ2luLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Pages/Account/Logout.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BY2NvdW50L0xvZ291dC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Pages/Account/Register.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BY2NvdW50L1JlZ2lzdGVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Pages/Bibite.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9CaWJpdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -111,6 +99,18 @@ build_metadata.AdditionalFiles.CssScope = b-un7nben9r5
 [/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-jf48i9jwwa
+
+[/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Pages/Account/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BY2NvdW50L0xvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-3yxlc1z4mm
+
+[/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Pages/Account/Logout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BY2NvdW50L0xvZ291dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-zuoppghbxt
+
+[/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Pages/Account/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BY2NvdW50L1JlZ2lzdGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-jc837tq1z0
 
 [/Users/luigi/Documents/GitHub/SushiApp/SushiApp/SushiApp/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y

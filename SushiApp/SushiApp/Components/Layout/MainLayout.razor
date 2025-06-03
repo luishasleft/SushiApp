@@ -1,42 +1,50 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager NavManager
+
+@code {
+    private static readonly string[] HiddenRoutes = new[] { "", "login", "register", "logout" };
+
+    private string CurrentPath => NavManager.ToBaseRelativePath(NavManager.Uri).TrimEnd('/').ToLowerInvariant();
+
+    private bool IsHiddenSidebar => HiddenRoutes.Any(path => CurrentPath.Equals(path));
+    private bool IsHiddenTopRow => HiddenRoutes.Any(path => CurrentPath.Equals(path));
+}
+
 <div class="page">
-    <div class="sidebar">
-        <NavMenu/>
-    </div>
+    @if (!IsHiddenSidebar)
+    {
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+    }
 
     <main>
-        <div class="top-row px-4">
-            <AuthorizeView>
-                <NotAuthorized>
-                    <a href="/login">Login</a>
-                </NotAuthorized>
-                <Authorized>
-                    <a href="/logout">Logout</a>
-                </Authorized>
-            </AuthorizeView>
-            <AuthorizeView Roles="Tavolo">
-                <Authorized>
-                    <a href="/carrello">
-                        <span class="material-icons cart">shopping_cart</span>
-                    </a>
-                </Authorized>
-            </AuthorizeView>
-            
-        </div>
+        @if (!IsHiddenTopRow)
+        {
+            <div class="top-row px-4">
+                <AuthorizeView>
+                    <NotAuthorized>
+                        <a href="/login">Login</a>
+                    </NotAuthorized>
+                    <Authorized>
+                        <a href="/logout">Logout</a>
+                    </Authorized>
+                </AuthorizeView>
+                <AuthorizeView Roles="Tavolo">
+                    <Authorized>
+                        <a href="/carrello">
+                            <span class="material-icons cart">shopping_cart</span>
+                        </a>
+                    </Authorized>
+                </AuthorizeView>
+            </div>
+        }
 
         <article class="content px-4">
             @Body
         </article>
     </main>
 </div>
-
-<footer class="footer">
-    <div class="footer-content">
-        <span>&copy; 2025 Wasabi Garden</span>
-        <a href="/privacy">Privacy</a>
-        <a href="/contatti">Contatti</a>
-    </div>
-</footer>
 
 <div id="blazor-error-ui" data-nosnippet>
     An unhandled error has occurred.

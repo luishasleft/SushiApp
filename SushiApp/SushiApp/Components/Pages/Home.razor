@@ -1,23 +1,116 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+@inject NavigationManager NavManager
+@inject AuthenticationStateProvider AuthStateProvider
+@rendermode InteractiveServer
 
-<div>
-    <div>
-        <h2 class="fw-bolder">Benvenuti al Wasabi Garden</h2>
-    </div>
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <AuthorizeView>
-                    <NotAuthorized>
-                        <span>You are not logged in. Please <a class="fw-bolder" href="/login">Click here</a> to login.</span>
-                    </NotAuthorized>
-                    <Authorized>
-                        <span>Logged in as <b>@context.User.Identity.Name</b>. <a class="fw-bolder" href="/logout"> Click here </a> to logout.</span>
-                    </Authorized>
-                </AuthorizeView>
+<PageTitle>Wasabi Garden Perugia</PageTitle>
+
+<div class="deba-container">
+    <!-- Header Navigation -->
+    <header class="deba-header">
+        <div class="nav-left">
+            <div class="lang-selector">
+                <span>ENG - ITA</span>
             </div>
         </div>
-    </div>
+        
+        <div class="logo">
+            <a href="/"><h1>WASABI<br/>GARDEN<br/><span class="logo-sub">PERUGIA</span></h1></a>
+        </div>
+        
+        <div class="nav-right">
+            <div class="phone">+39 332 438 0111</div>
+            <button class="reservation-btn">PRENOTA ORA!</button>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="subtitle">WASABI GARDEN A PERUGIA</p>
+                <h2 class="main-title">GUSTO ITALIANO E TECNICHE GIAPPONESI</h2>
+                <p class="description">
+                    La tradizione nipponica si fonde con l'eleganza e l'estro italiano, dando vita a piatti unici preparati con materie prime di altissima qualità. Ogni portata e ogni gesto sono pensati per offrire un'esperienza che cura con passione ogni minimo particolare.
+                </p>
+                <button class="discover-btn" @onclick="VaiADestinazioneAsync">Ordina dal tavolo</button>
+            </div>
+        </div>
+        
+        <!-- Background Image Overlay -->
+        <div class="hero-background"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="deba-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-info">
+                    <h3>WASABI GARDEN</h3>
+                    <p>Via Garibaldi 123, Perugia</p>
+                    <p>Tel: +39 332 438 0111</p>
+                    <p>info@wasabigarden.it</p>
+                </div>
+            </div>
+
+            <div class="footer-center">
+                <div class="footer-hours">
+                    <h4>ORARI DI APERTURA</h4>
+                    <div class="hours-grid">
+                        <div class="hours-item">
+                            <span>Lun - Ven</span>
+                            <span>19:00 - 23:30</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Sab - Dom</span>
+                            <span>12:00 - 15:00 | 19:00 - 24:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-social">
+                    <h4>SEGUICI</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">TripAdvisor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-divider"></div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Wasabi Garden Perugia. Tutti i diritti riservati.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#" class="footer-link">Termini di Servizio</a>
+                    <span class="separator">|</span>
+                    <a href="#" class="footer-link">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
+
+@code {
+    private async Task VaiADestinazioneAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity != null && user.Identity.IsAuthenticated)
+        {
+            NavManager.NavigateTo("/nigiri");
+        }
+        else
+        {
+            NavManager.NavigateTo("/login");
+        }
+    }
+}
