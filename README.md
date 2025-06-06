@@ -40,10 +40,10 @@ To run the project locally:
 ---
 
 ## 📸 Screenshot
-![Screenshot](./SushiApp/SushiApp/Screenshot1.png)
-![Screenshot](./SushiApp/SushiApp/Screenshot2.png)
-![Screenshot](./SushiApp/SushiApp/Screenshot3.png)
-![Screenshot](./SushiApp/SushiApp/Screenshot4.png)
+![Screenshot](./SushiApp/SushiApp/SushiApp/Screenshot1.png)
+![Screenshot](./SushiApp/SushiApp/SushiApp/Screenshot2.png)
+![Screenshot](./SushiApp/SushiApp/SushiApp/Screenshot3.png)
+![Screenshot](./SushiApp/SushiApp/SushiApp/Screenshot4.png)
 
 ---
 
