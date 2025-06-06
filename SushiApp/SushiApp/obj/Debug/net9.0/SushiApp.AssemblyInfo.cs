@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SushiApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d341b07908f51d4edf60f476a61fbce3b8123cd4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+308b22c4de253d29af7656487cceb6c298110e5e")]
 [assembly: System.Reflection.AssemblyProductAttribute("SushiApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SushiApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

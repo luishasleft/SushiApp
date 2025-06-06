@@ -34,4 +34,8 @@
       <Content Include="Components\.DS_Store" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="assets\" />
+    </ItemGroup>
+
 </Project>
