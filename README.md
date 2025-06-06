@@ -22,6 +22,31 @@ It features a dynamic menu, reservation system, and basic admin panel.
 - Entity Framework Core
 - Bootstrap 5
 
+---
+
+## ▶️ Getting Started
+
+To run the project locally:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/tuo-username/SushiApp.git
+   cd SushiApp
+
+2. **Run**
+   ```bash
+   dotnet run
+
+---
+
+## 📸 Screenshot
+![Screenshot](./assets/Screenshot1.png)
+![Screenshot](./assets/Screenshot2.png)
+![Screenshot](./assets/Screenshot3.png)
+![Screenshot](./assets/Screenshot4.png)
+
+
+
 
 
 
