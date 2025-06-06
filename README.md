@@ -40,7 +40,7 @@ To run the project locally:
 ---
 
 ## 📸 Screenshot
-![Screenshot](./SushiApp//SushiApp//SushiApp/Screenshot1.png)
+![Screenshot](./SushiApp//SushiApp/SushiApp/Screenshot1.png)
 ![Screenshot](./SushiApp//SushiApp//SushiApp/Screenshot2.png)
 ![Screenshot](./SushiApp//SushiApp//SushiApp/Screenshot3.png)
 ![Screenshot](./SushiApp//SushiApp//SushiApp/Screenshot4.png)
@@ -50,8 +50,8 @@ To run the project locally:
 ## 🧑‍💻 Author
 
 Created by Luishasleft
-📧 luigigorgone4@gmail.com
-🌐 github.com/luishasleft
+- 📧 luigigorgone4@gmail.com
+- 🌐 github.com/luishasleft
 
 
 
