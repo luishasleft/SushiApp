@@ -33,13 +33,17 @@ To run the project locally:
    git clone https://github.com/tuo-username/SushiApp.git
    cd SushiApp
 
-2. **Run
+2. **Run**
    ```bash
    dotnet run
 
 ---
 
 ## 📸 Screenshot
+![Screenshot](./assets/Screenshot1.png)
+![Screenshot](./assets/Screenshot2.png)
+![Screenshot](./assets/Screenshot3.png)
+![Screenshot](./assets/Screenshot4.png)
 
 
 
